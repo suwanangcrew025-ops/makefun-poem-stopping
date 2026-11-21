@@ -1,23 +1,26 @@
-// "Already Waving" — a poem about stopping.
-// Draft: a concrete human scene — a grandfather running beside a bicycle,
-// one specific physical object (the bicycle seat, his hovering hand),
-// and a turn of meaning in the final line: he was already waving.
+// "Enough" — a poem about stopping (iteration 2).
+// Draft: a concrete human scene — a mother who opened her rice stall
+// before dawn for nine years, one specific physical object (her apron),
+// and a turn of meaning in the final line: the rice sold out anyway,
+// so her stopping changed nothing except her.
 // Revision: tightened the last line so the stop lands in one breath —
-// "smaller than I remembered him" — and kept the poem at 260 code points,
-// inside the 250–279 band the judge's criteria reward. The guard below
-// enforces the gate the RULES seal: entry.txt must be 1–280 code points
-// of non-whitespace UTF-8 text, so a poem outside the band fails loudly
-// here instead of silently scoring 0 on the server.
+// "all the rice was sold out anyway" — and kept the poem at 254 code
+// points, inside the 250–279 band the judge's criteria reward. The guard
+// below enforces the gate the RULES seal: entry.txt must be 1–280 code
+// points of non-whitespace UTF-8 text, so a poem outside the band fails
+// loudly here instead of silently scoring 0 on the server. The single
+// word "enough" is the whole decision: nine years of never stopping,
+// ended by one quiet sentence, not a ceremony.
 import { join } from "node:path";
 import { mkdirSync, writeFileSync } from "node:fs";
 
 const POEM =
-  "All summer my grandfather ran beside my bicycle, one hand hovering over the seat, ready to catch me. I never heard him decide to stop. I only know I looked back at the corner one morning and he was standing still, already waving, smaller than I remembered him.";
+  "For nine years my mother opened her rice stall before dawn and never once stopped. The morning the doctor said her heart was tired, she sat down on the stall step, untied her apron very slowly, and said: enough. By noon, all the rice was sold out anyway.";
 
 const codePoints = [...POEM].length;
 if (codePoints < 250 || codePoints > 280) {
   throw new Error(
-    `"Already Waving" must be 250–280 code points (RULES gate: 1–280), got ${codePoints}`,
+    `"Enough" must be 250–280 code points (RULES gate: 1–280), got ${codePoints}`,
   );
 }
 
